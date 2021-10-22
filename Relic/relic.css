@@ -1,4 +1,9 @@
-.sheet-group span.label {
+.sheet-group span.grouplabel {
     font-size: 2em;
     color: cadetblue;
+}
+
+.sheet-group span.label {
+    font-size: 1.5em;
+    color: black;
 }

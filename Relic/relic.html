@@ -18,7 +18,7 @@
     <!-- Name and Origin -->
 		<div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="name-origin">Name & Origin</span>
+        <span class="grouplabel" data-i18n="name-origin">Name & Origin</span>
       </div>
       <div class="heading-grid">
         <div class="heading-box2">
@@ -31,7 +31,7 @@
           <span class="label" data-i18n="name-of-suffix">of</span>
         </div>
         <div class="heading-box5">
-          <input class="input" type="text" name="attr_character_name_suffix" value="" title="@{kin}" />
+          <input class="input" type="text" name="attr_character_name_suffix" value="" title="@{character_name_suffix}" />
         </div>
       </div>
 		</div>
@@ -39,134 +39,214 @@
     <!-- Appearance & Background -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="appearance-background">Appearance & Background</span>
+        <span class="grouplabel" data-i18n="appearance-background">Appearance & Background</span>
+      </div>
+      <div class="heading-grid">
+        <div class="heading-box2">
+          <span class="label" data-i18n="appearance">Appearance</span>
+        </div>
+        <div class="heading-box3">
+          <input class="input" type="text" name="attr_char_appearance" value="" title="@{char_appearance}" />
+        </div>
+        <div class="heading-box4">
+          <span class="label" data-i18n="background">Background</span>
+        </div>
+        <div class="heading-box5">
+          <input class="input" type="text" name="attr_char_background" value="" title="@{char_background}" />
+        </div>
       </div>
     </div>
 
 
     <!-- Arcs -->
+    <!-- 
+      Four options to choose from and each option has two text fields (For what text?)
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="arcs">Arcs</span>
+        <span class="grouplabel" data-i18n="arcs">Arcs</span>
       </div>
     </div>
 
     <!-- Questions -->
+    <!-- 
+      Four questions players can ask their neighbors (Will any text entry result from this?)
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="questions">Questions</span>
+        <span class="grouplabel" data-i18n="questions">Questions</span>
       </div>
     </div>
 
     <!-- Summary & Drive -->
+    <!-- 
+      Name and Origin Repeat (Booklet. Might leave out of digital sheet)
+      Text input for drive
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="summary-drive">Summary & Drive</span>
+        <span class="grouplabel" data-i18n="summary-drive">Summary & Drive</span>
       </div>
     </div>
 
     <!-- Companions -->
+    <!-- 
+      Three boxes for companion names and checkboxes (What are the companions?)
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="companions">Companions</span>
+        <span class="grouplabel" data-i18n="companions">Companions</span>
       </div>
     </div>
 
     <!-- Abilities -->
+    <!-- 
+      Two text areas for abilities (Might more be needed)
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="abilities">Abilities</span>
+        <span class="grouplabel" data-i18n="abilities">Abilities</span>
       </div>
     </div>
 
     <!-- Skills -->
+    <!-- 
+      Four categories with 3,3,3 and 2 skills in each one each consists of:
+      checkbox, name, kewords, field for own keyword(s)
+      Last category changes from playbook to playbook
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="skills">Skills</span>
+        <span class="grouplabel" data-i18n="skills">Skills</span>
       </div>
     </div>
 
     <!-- Wises -->
+    <!-- 
+      Twelve checkboxes with labels. The last one has a text field instead of a label
+      (Are more than 1 custom wises likely?)
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="wises">Wises</span>
+        <span class="grouplabel" data-i18n="wises">Wises</span>
       </div>
     </div>
 
     <!-- Heart & Endurance -->
+    <!-- 
+      Heart: Three checkboxes (probably used like a radio)
+      Enduarance: Three checkboxes (probably used like a radio), expandable to 5?
+      Resolve: Three checkboxes (probably used like a radio), expandable to 5?
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="heart-endurance">Heart & Endurance</span>
+        <span class="grouplabel" data-i18n="heart-endurance">Heart & Endurance</span>
       </div>
     </div>
 
     <!-- Goal & Struggles -->
+    <!-- 
+      Goal: Checkbox and text field (What is the checkbox for?)
+      Struggles: Checkbox and text field (What is the checkbox for?) for primary struggle.
+      4 Text fields for other struggles (limited?)
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="goal-struggles">Goal & Struggles</span>
+        <span class="grouplabel" data-i18n="goal-struggles">Goal & Struggles</span>
       </div>
     </div>
 
     <!-- Experience -->
+    <!-- 
+      Six checkboxes for team experience (used like a radio) (maybe change to clock?)
+      Explanatory text
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="experience">Experience</span>
+        <span class="grouplabel" data-i18n="experience">Experience</span>
       </div>
     </div>
 
     <!-- Talisman -->
+    <!-- 
+      Contains: Image of talisman, name, text description, 3 abilities with description,
+      2-3 questions about it and the answers (origin and more from GM)
+      (Are those custom? Are the number of abilities fixed? )
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="talisman">Talisman</span>
+        <span class="grouplabel" data-i18n="talisman">Talisman</span>
       </div>
     </div>
 
     <!-- Talisman Arcs -->
+    <!-- 
+      2 checkboxes with descriptive text (How much is custom here and how fixed is the number?)
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="talisman-arcs">Talisman Arcs</span>
+        <span class="grouplabel" data-i18n="talisman-arcs">Talisman Arcs</span>
       </div>
     </div>
 
     <!-- Gear Kits -->
+    <!-- 
+      Select two of three kits as well as a space with text for custom equipment
+      Two checkboxes for kit flexibility (what are those?)
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="gear-kits">Gear Kits</span>
+        <span class="grouplabel" data-i18n="gear-kits">Gear Kits</span>
       </div>
     </div>
 
     <!-- Kit Contents -->
+    <!-- 
+      Template?? (How is this used?)
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="kit-contents">Kit Contents</span>
+        <span class="grouplabel" data-i18n="kit-contents">Kit Contents</span>
       </div>
     </div>
 
     <!-- Camp -->
+    <!-- 
+      Just information text?
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="camp">Camp</span>
+        <span class="grouplabel" data-i18n="camp">Camp</span>
       </div>
     </div>
 
     <!-- Season -->
+    <!-- 
+      Just information text?
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="season">Season</span>
+        <span class="grouplabel" data-i18n="season">Season</span>
       </div>
     </div>
 
     <!-- Arcs -->
+    <!-- 
+      Just information text?
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="arcs">Arcs</span>
+        <span class="grouplabel" data-i18n="arcs">Arcs</span>
       </div>
     </div>
 
     <!-- Advances -->
+    <!-- 
+      Just information text?
+     -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="label" data-i18n="advances">Advances</span>
+        <span class="grouplabel" data-i18n="advances">Advances</span>
       </div>
     </div>
 
