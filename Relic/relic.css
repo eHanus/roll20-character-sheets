@@ -7,3 +7,21 @@
     font-size: 1.5em;
     color: black;
 }
+
+.charsheet main.character,
+.charsheet main.party,
+.charsheet main.gamemaster,
+.charsheet main.settings {
+  display: none;
+}
+.charsheet input.tabstoggle[value=character] ~ main.character,
+.charsheet input.tabstoggle[value=party] ~ main.party,
+.charsheet input.tabstoggle[value=gamemaster] ~ main.gamemaster,
+.charsheet input.tabstoggle[value=settings] ~ main.settings {
+  display: grid;
+}
+
+.charsheet div.tab-buttons {
+  display: flex;
+  gap: 10px;
+}

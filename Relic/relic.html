@@ -1,339 +1,426 @@
-<div class="sheet-main">
 
-  <!--tabs-->
-  <div class="tab-buttons middle center">
-    <input class="tab character" name="attr_tab" data-i18n-title="character" title="Character" type="radio" value="1" checked />
-    <input class="tab party" name="attr_tab" data-i18n-title="stronghold" title="Stronghold" type="radio" value="2" />
-    <input class="tab gamemaster" name="attr_tab" data-i18n-title="monster" title="Monster" type="radio" value="3" />
-    <input class="tab settings" name="attr_tab" data-i18n-title="settings" title="Settings" type="radio" value="4" />
-  </div>
-  
-  <input type="hidden" class="tabstoggle" name="attr_sheetTab"  value="character">
-  <!--  ----------------------------------------------------------------------------------------------------------------------- -->
-  <!--  ------------------------------------------------- CHARACTER ----------------------------------------------------------- -->
-  <!--  ----------------------------------------------------------------------------------------------------------------------- -->
-
-  <div class="wrapper tab-content character">
-
-    <!-- Name and Origin -->
-		<div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="name-origin">Name & Origin</span>
-      </div>
-      <div class="heading-grid">
-        <div class="heading-box2">
-          <span class="label" data-i18n="i-am-called">I am called</span>
-        </div>
-        <div class="heading-box3">
-          <input class="input" type="text" name="attr_character_name" value="" title="@{character_name}" />
-        </div>
-        <div class="heading-box4">
-          <span class="label" data-i18n="name-of-suffix">of</span>
-        </div>
-        <div class="heading-box5">
-          <input class="input" type="text" name="attr_character_name_suffix" value="" title="@{character_name_suffix}" />
-        </div>
-      </div>
-		</div>
-
-    <!-- Appearance & Background -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="appearance-background">Appearance & Background</span>
-      </div>
-      <div class="heading-grid">
-        <div class="heading-box2">
-          <span class="label" data-i18n="appearance">Appearance</span>
-        </div>
-        <div class="heading-box3">
-          <input class="input" type="text" name="attr_char_appearance" value="" title="@{char_appearance}" />
-        </div>
-        <div class="heading-box4">
-          <span class="label" data-i18n="background">Background</span>
-        </div>
-        <div class="heading-box5">
-          <input class="input" type="text" name="attr_char_background" value="" title="@{char_background}" />
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Arcs -->
-    <!-- 
-      Four options to choose from and each option has two text fields (For what text?)
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="arcs">Arcs</span>
-      </div>
-    </div>
-
-    <!-- Questions -->
-    <!-- 
-      Four questions players can ask their neighbors (Will any text entry result from this?)
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="questions">Questions</span>
-      </div>
-    </div>
-
-    <!-- Summary & Drive -->
-    <!-- 
-      Name and Origin Repeat (Booklet. Might leave out of digital sheet)
-      Text input for drive
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="summary-drive">Summary & Drive</span>
-      </div>
-    </div>
-
-    <!-- Companions -->
-    <!-- 
-      Three boxes for companion names and checkboxes (What are the companions?)
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="companions">Companions</span>
-      </div>
-    </div>
-
-    <!-- Abilities -->
-    <!-- 
-      Two text areas for abilities (Might more be needed)
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="abilities">Abilities</span>
-      </div>
-    </div>
-
-    <!-- Skills -->
-    <!-- 
-      Four categories with 3,3,3 and 2 skills in each one each consists of:
-      checkbox, name, kewords, field for own keyword(s)
-      Last category changes from playbook to playbook
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="skills">Skills</span>
-      </div>
-    </div>
-
-    <!-- Wises -->
-    <!-- 
-      Twelve checkboxes with labels. The last one has a text field instead of a label
-      (Are more than 1 custom wises likely?)
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="wises">Wises</span>
-      </div>
-    </div>
-
-    <!-- Heart & Endurance -->
-    <!-- 
-      Heart: Three checkboxes (probably used like a radio)
-      Enduarance: Three checkboxes (probably used like a radio), expandable to 5?
-      Resolve: Three checkboxes (probably used like a radio), expandable to 5?
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="heart-endurance">Heart & Endurance</span>
-      </div>
-    </div>
-
-    <!-- Goal & Struggles -->
-    <!-- 
-      Goal: Checkbox and text field (What is the checkbox for?)
-      Struggles: Checkbox and text field (What is the checkbox for?) for primary struggle.
-      4 Text fields for other struggles (limited?)
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="goal-struggles">Goal & Struggles</span>
-      </div>
-    </div>
-
-    <!-- Experience -->
-    <!-- 
-      Six checkboxes for team experience (used like a radio) (maybe change to clock?)
-      Explanatory text
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="experience">Experience</span>
-      </div>
-    </div>
-
-    <!-- Talisman -->
-    <!-- 
-      Contains: Image of talisman, name, text description, 3 abilities with description,
-      2-3 questions about it and the answers (origin and more from GM)
-      (Are those custom? Are the number of abilities fixed? )
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="talisman">Talisman</span>
-      </div>
-    </div>
-
-    <!-- Talisman Arcs -->
-    <!-- 
-      2 checkboxes with descriptive text (How much is custom here and how fixed is the number?)
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="talisman-arcs">Talisman Arcs</span>
-      </div>
-    </div>
-
-    <!-- Gear Kits -->
-    <!-- 
-      Select two of three kits as well as a space with text for custom equipment
-      Two checkboxes for kit flexibility (what are those?)
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="gear-kits">Gear Kits</span>
-      </div>
-    </div>
-
-    <!-- Kit Contents -->
-    <!-- 
-      Template?? (How is this used?)
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="kit-contents">Kit Contents</span>
-      </div>
-    </div>
-
-    <!-- Camp -->
-    <!-- 
-      Just information text?
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="camp">Camp</span>
-      </div>
-    </div>
-
-    <!-- Season -->
-    <!-- 
-      Just information text?
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="season">Season</span>
-      </div>
-    </div>
-
-    <!-- Arcs -->
-    <!-- 
-      Just information text?
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="arcs">Arcs</span>
-      </div>
-    </div>
-
-    <!-- Advances -->
-    <!-- 
-      Just information text?
-     -->
-    <div class="sheet-group">
-      <div class="heading-box1">
-        <span class="grouplabel" data-i18n="advances">Advances</span>
-      </div>
-    </div>
-
-	</div>
-
-  <!--  ----------------------------------------------------------------------------------------------------------------------- -->
-  <!--  ------------------------------------------------- PARTY --------------------------------------------------------------- -->
-  <!--  ----------------------------------------------------------------------------------------------------------------------- -->
-
-  <div class="wrapper tab-content party">
-	
-		<div class="sheet-partytitle">
-
-			<span> </span> <h2> Party </h2> <span> </span>
-		
-		</div>
-		
-		<div class="sheet-clues">
-		
-			<div class="sheet-clues-row">
-				  <span> </span>
-			</div>
-	
-		  <fieldset class="repeating_clues">
-			  <div class="sheet-clues-row">
-				  <span> </span>
-				  <textarea name="attr_cluedescription" value=""> </textarea>
-				  <span> </span>
-			  </div>
-			</fieldset>
-		</div>
-		
-		<div class="sheet-info sheet-flex-col">
-		  
-		</div>
-	
-	</div>
-
-  <!--  ----------------------------------------------------------------------------------------------------------------------- -->
-  <!--  ------------------------------------------------- GM ------------------------------------------------------------------ -->
-  <!--  ----------------------------------------------------------------------------------------------------------------------- -->
-
-
-	<div class="wrapper tab-content gamemaster">
-	
-		<div class="sheet-gmtitle">
-
-			<span> </span> <h2> GM </h2> <span> </span>
-		
-		</div>
-		
-		<div class="sheet-clues">
-		
-			<div class="sheet-clues-row">
-				  <span> </span>
-			</div>
-	
-		  <fieldset class="repeating_clues">
-			  <div class="sheet-clues-row">
-				  <span> </span>
-				  <textarea name="attr_cluedescription" value=""> </textarea>
-				  <span> </span>
-			  </div>
-			</fieldset>
-		</div>
-		
-		<div class="sheet-info sheet-flex-col">
-		  
-		</div>
-	
-	</div>
-
-
-
+<!-- Tabs -->
+<div class="tab-buttons middle center">
+  <button class="character" type="action" name="act_character" data-i18n="character" >Character</button>
+  <button class="party" type="action" name="act_party" data-i18n="party" >Party</button>
+  <button class="gamemaster" type="action" name="act_gamemaster" data-i18n="gamemaster-abbr" >GM</button>
+  <button class="settings" type="action" name="act_settings" data-i18n="settings" >Settings</button>
 </div>
 
-  <!--  ----------------------------------------------------------------------------------------------------------------------- -->
-  <!--  ------------------------------------------------- ROLL TEMPLATES ------------------------------------------------------ -->
-  <!--  ----------------------------------------------------------------------------------------------------------------------- -->
+<input type="hidden" class="tabstoggle" name="attr_sheetTab"  value="character">
+
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+<!--  ------------------------------------------------- CHARACTER ----------------------------------------------------------- -->
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+
+<main class="character">
+
+  <!-- Playbook -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="playbook-name">Playbook Name</span>
+    </div>
+    <div class="heading-box2">
+      <input class="input" type="text" name="attr_playbook_name" value="" title="@{playbook_name}" />
+    </div>
+  </div>
+
+  <!-- Name and Origin -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="name-origin">Name & Origin</span>
+    </div>
+    <div class="heading-grid">
+      <div class="heading-box2">
+        <span class="label" data-i18n="i-am-called">I am called</span>
+      </div>
+      <div class="heading-box3">
+        <input class="input" type="text" name="attr_character_name" value="" title="@{character_name}" />
+      </div>
+      <div class="heading-box4">
+        <span class="label" data-i18n="name-of-suffix">of</span>
+      </div>
+      <div class="heading-box5">
+        <input class="input" type="text" name="attr_character_name_suffix" value="" title="@{character_name_suffix}" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Appearance & Background -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="appearance-background">Appearance & Background</span>
+    </div>
+    <div class="heading-grid">
+      <div class="heading-box2">
+        <span class="label" data-i18n="appearance">Appearance</span>
+      </div>
+      <div class="heading-box3">
+        <input class="input" type="text" name="attr_char_appearance" value="" title="@{char_appearance}" />
+      </div>
+      <div class="heading-box4">
+        <span class="label" data-i18n="background">Background</span>
+      </div>
+      <div class="heading-box5">
+        <input class="input" type="text" name="attr_char_background" value="" title="@{char_background}" />
+      </div>
+    </div>
+  </div>
 
 
-  <!--  ----------------------------------------------------------------------------------------------------------------------- -->
-  <!--  ------------------------------------------------- SHEET WORKERS ------------------------------------------------------- -->
-  <!--  ----------------------------------------------------------------------------------------------------------------------- -->
+  <!-- Arcs -->
+  <!-- 
+    Four options to choose from and each option has two text fields (For what text?)
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="arcs">Arcs</span>
+    </div>
+  </div>
+
+  <!-- Questions -->
+  <!-- 
+    Four questions players can ask their neighbors (Will any text entry result from this?)
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="questions">Questions</span>
+    </div>
+  </div>
+
+  <!-- Summary & Drive -->
+  <!-- 
+    Name and Origin Repeat (Booklet. Might leave out of digital sheet)
+    Text input for drive
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="summary-drive">Summary & Drive</span>
+    </div>
+  </div>
+
+  <!-- Companions -->
+  <!-- 
+    Three boxes for companion names and checkboxes
+    Track other PCs and if one can use their "strings" to influence them (limited to 3 or maybe flexible?)
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="companions">Companions</span>
+    </div>
+  </div>
+
+  <!-- Abilities -->
+  <!-- 
+    Two text areas for abilities (Might more be needed)
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="abilities">Abilities</span>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <!-- 
+    Four categories with 3,3,3 and 2 actions in each one each consists of:
+    checkbox, name, kewords, field for own keyword(s)
+    Last category changes from playbook to playbook
+
+    Unkilled actions Roll 1D, skill adds +1D any knacks that apply add another +1D
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="actions">Actions</span>
+    </div>
+  </div>
+
+  <!-- Wises -->
+  <!-- 
+    Twelve checkboxes with labels. The last one has a text field instead of a label
+    (Are more than 1 custom wises likely?)
+
+    Wises allow players to spend resolve to establish facts about the world.
+    May need a roll and work like skills (1D, 2D)
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="wises">Wises</span>
+    </div>
+  </div>
+
+  <!-- Heart & Endurance -->
+  <!-- 
+    Heart: Three checkboxes (probably used like a radio)
+    Endurance: Three checkboxes (probably used like a radio), expandable to 5?
+    Resolve: Three checkboxes (probably used like a radio), expandable to 5?
+
+    Heart works similar to Dark Hearts.
+    Endurance & Resolve work a bit like stress but are rolled and can be upgraded
+    from 3 to a maximum of 5 through XP advances.
+
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="heart-endurance">Heart & Endurance</span>
+    </div>
+  </div>
+
+  <!-- Goal & Struggles -->
+  <!-- 
+    Goal: Checkbox and text field (What is the checkbox for?)
+    Struggles: Checkbox and text field (What is the checkbox for?) for primary struggle.
+    4 Text fields for other struggles (limited?)
+
+    Struggles will be divided into short- and long-term conditions that present a hinderance or
+    challenge that either comes up once or is part of the character
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="goal-struggles">Goal & Struggles</span>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <!-- 
+    Six checkboxes for team experience (used like a radio) (maybe change to clock?)
+    Explanatory text
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="experience">Experience</span>
+    </div>
+  </div>
+
+  <!-- Talisman -->
+  <!-- 
+    Contains: Image of talisman, name, text description / base ability,
+    3 upgrade abilities with description,
+    2-3 questions about it and the answers (origin and more from GM)
+    (Should those be customizable? Are the number of abilities fixed? )
+
+    This is the center of most characters...  it's often some amazing item they have,
+    but could also be an animal companion or even a magic power.
+    Modular and selectable from presets on the PDF sheet.
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="talisman">Talisman</span>
+    </div>
+  </div>
+
+  <!-- Talisman Arcs -->
+  <!-- 
+    2 checkboxes with descriptive text (How much is custom here and how fixed is the number?)
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="talisman-arcs">Talisman Arcs</span>
+    </div>
+  </div>
+
+  <!-- Gear Kits -->
+  <!-- 
+    Select two of three kits as well as a space with text for custom equipment
+    Two checkboxes for kit flexibility (what are those?)
+
+    Each PC will start with that basic gear kit there - backpack, bedroll, etc.
+    They can then choose two others - small sets of items they have.
+    These will have graphics and the PDF will make selecting these then printing it out easy,
+    but they can also just be pasted onto the sheets / written in as well
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="gear-kits">Gear Kits</span>
+    </div>
+  </div>
+
+  <!-- Camp -->
+  <!-- 
+    Just information text?
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="camp">Camp</span>
+    </div>
+  </div>
+
+  <!-- Season -->
+  <!-- 
+    Just information text?
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="season">Season</span>
+    </div>
+  </div>
+
+  <!-- Arcs -->
+  <!-- 
+    Just information text?
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="arcs">Arcs</span>
+    </div>
+  </div>
+
+  <!-- Advances -->
+  <!-- 
+    Just information text?
+    -->
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="advances">Advances</span>
+    </div>
+  </div>
+
+</main>
+
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+<!--  ------------------------------------------------- PARTY --------------------------------------------------------------- -->
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+<main class="party">
+  
+  <div class="sheet-partytitle">
+
+    <span> </span> <h2> Party </h2> <span> </span>
+  
+  </div>
+  
+  <div class="sheet-clues">
+  
+    <div class="sheet-clues-row">
+        <span> </span>
+    </div>
+
+    <fieldset class="repeating_clues">
+      <div class="sheet-clues-row">
+        <span> </span>
+        <textarea name="attr_cluedescription" value=""> </textarea>
+        <span> </span>
+      </div>
+    </fieldset>
+  </div>
+  
+  <div class="sheet-info sheet-flex-col">
+    
+  </div>
+
+</main>
+
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+<!--  ------------------------------------------------- GM ------------------------------------------------------------------ -->
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+
+
+<main class="gamemaster">
+  
+  <div class="sheet-gmtitle">
+
+    <span> </span> <h2> GM </h2> <span> </span>
+  
+  </div>
+  
+  <div class="sheet-clues">
+  
+    <div class="sheet-clues-row">
+        <span> </span>
+    </div>
+
+    <fieldset class="repeating_clues">
+      <div class="sheet-clues-row">
+        <span> </span>
+        <textarea name="attr_cluedescription" value=""> </textarea>
+        <span> </span>
+      </div>
+    </fieldset>
+  </div>
+  
+  <div class="sheet-info sheet-flex-col">
+    
+  </div>
+
+</main>
+
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+<!--  ------------------------------------------------- SETTINGS ------------------------------------------------------------ -->
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+
+
+<main class="settings">
+  
+  <div class="sheet-gmtitle">
+
+    <span> </span> <h2> SETTINGS </h2> <span> </span>
+  
+  </div>
+  
+  <div class="sheet-clues">
+  
+    <div class="sheet-clues-row">
+        <span> </span>
+    </div>
+
+    <fieldset class="repeating_clues">
+      <div class="sheet-clues-row">
+        <span> </span>
+        <textarea name="attr_cluedescription" value=""> </textarea>
+        <span> </span>
+      </div>
+    </fieldset>
+  </div>
+  
+  <div class="sheet-info sheet-flex-col">
+    
+  </div>
+
+</main>
+
+
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+<!--  ------------------------------------------------- ROLL TEMPLATES ------------------------------------------------------ -->
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+
+
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+<!--  ------------------------------------------------- SHEET WORKERS ------------------------------------------------------- -->
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
 
 
 <script type="text/worker">
-  // type="text/worker"
+// type="text/worker"
+
+// tabs
+const buttonlist = ["character", "party","gamemaster","settings"];
+buttonlist.forEach(button => {
+    on(`clicked:${button}`, function() {
+
+        setAttrs({
+            sheetTab: button
+        });
+    });
+});
+
+on("sheet:opened", function() {
+
+  getAttrs(["sheetTab"], values => {
+
+    let sheetTab = values["sheetTab"];
+    console.log("sheetTab: ", sheetTab);
+
+    if (sheetTab === "character"){
+      console.log("sheetTab was char", npc);
+    }
+    else if (sheetTab === "party"){
+      console.log("sheetTab was party", npc);
+    }
+    else if (sheetTab === "gamemaster"){
+      console.log("sheetTab was gamemaster");
+    }
+    else if (sheetTab === "settings"){
+      console.log("sheetTab was settings");
+    }
+  });
+});
 
 </script>
