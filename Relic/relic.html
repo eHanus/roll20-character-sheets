@@ -71,6 +71,8 @@
   <!-- Arcs -->
   <!-- 
     Four options to choose from and each option has two text fields (For what text?)
+    Playbook suggests but players might create own
+    2 to 3 boxes for points of the selected arc
     -->
   <div class="sheet-group">
     <div class="heading-box1">
@@ -81,6 +83,8 @@
   <!-- Questions -->
   <!-- 
     Four questions players can ask their neighbors (Will any text entry result from this?)
+    Playbook autopopulates. Custom ones also encouraged
+
     -->
   <div class="sheet-group">
     <div class="heading-box1">
@@ -127,6 +131,7 @@
     Last category changes from playbook to playbook
 
     Unkilled actions Roll 1D, skill adds +1D any knacks that apply add another +1D
+    more than one custom knack thinkable
     -->
   <div class="sheet-group">
     <div class="heading-box1">
@@ -173,6 +178,8 @@
 
     Struggles will be divided into short- and long-term conditions that present a hinderance or
     challenge that either comes up once or is part of the character
+
+    Current goal is gone and part of the story arcs
     -->
   <div class="sheet-group">
     <div class="heading-box1">
@@ -227,10 +234,59 @@
     They can then choose two others - small sets of items they have.
     These will have graphics and the PDF will make selecting these then printing it out easy,
     but they can also just be pasted onto the sheets / written in as well
+
+    kit flexibility is gone now
+
     -->
   <div class="sheet-group">
     <div class="heading-box1">
       <span class="grouplabel" data-i18n="gear-kits">Gear Kits</span>
+      <div class="kit-selector">
+				<span>Base Kit :</span>
+				<select name="attr_kit_base">
+					<option value="none">None</option>
+					<option value="builder">Builder</option>
+					<option value="cook">Cook</option>
+					<option value="explorer">Explorer</option>
+					<option value="healer">Healer</option>
+          <option value="hunter">Hunter</option>
+					<option value="traveler" selected>Traveler</option>
+					<option value="custom">Custom</option>
+				</select>
+        <!--
+          <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Relic/img/kit-builder.png"/>
+          <img src="https://raw.githubusercontent.com/eHanus/roll20-character-sheets/relic-creation/Relic/img/kit-traveler.png"/>
+        -->
+        <img name="attr_kit_base_url"/>
+			</div>
+      <div class="kit-selector">
+				<span>Kit #1 :</span>
+				<select name="attr_kit_1">
+					<option value="none" selected>None</option>
+					<option value="builder">Builder</option>
+					<option value="cook">Cook</option>
+					<option value="explorer">Explorer</option>
+					<option value="healer">Healer</option>
+          <option value="hunter">Hunter</option>
+					<option value="traveler">Traveler</option>
+					<option value="custom">Custom</option>
+				</select>
+        <img name="attr_kit_1_url"/>
+			</div>
+      <div class="kit-selector">
+				<span>Kit #2 :</span>
+				<select name="attr_kit_2">
+					<option value="none" selected>None</option>
+					<option value="builder">Builder</option>
+					<option value="cook">Cook</option>
+					<option value="explorer">Explorer</option>
+					<option value="healer">Healer</option>
+          <option value="hunter">Hunter</option>
+					<option value="traveler">Traveler</option>
+					<option value="custom">Custom</option>
+				</select>
+        <img name="attr_kit_2_url"/>
+			</div>
     </div>
   </div>
 
@@ -369,6 +425,45 @@
       </div>
     </fieldset>
   </div>
+
+  <div class="kit-urls">
+  
+    <div class="kit-urls-row">
+        <span>Base kit custom URL</span>
+    </div>
+
+    <fieldset class="kit_base_url">
+      <div class="kit-urls-row">
+        <span> </span>
+        <input class="input" type="text" name="attr_kit_base_custom_url" value="" title="Base kit URL" />
+        <span> </span>
+      </div>
+    </fieldset>
+
+    <div class="kit-urls-row">
+      <span>Kit #1 custom URL</span>
+    </div>
+
+  <fieldset class="kit_1_url">
+    <div class="kit-urls-row">
+      <span> </span>
+      <input class="input" type="text" name="attr_kit_1_custom_url" value="" title="Kit #1 URL" />
+      <span> </span>
+    </div>
+  </fieldset>
+
+  <div class="kit-urls-row">
+    <span>Kit #2 custom URL</span>
+  </div>
+
+<fieldset class="kit_2_url">
+  <div class="kit-urls-row">
+    <span> </span>
+    <input class="input" type="text" name="attr_kit_2_custom_url" value="" title="Kit #2 URL" />
+    <span> </span>
+  </div>
+</fieldset>
+  </div>
   
   <div class="sheet-info sheet-flex-col">
     
@@ -386,9 +481,11 @@
 <!--  ------------------------------------------------- SHEET WORKERS ------------------------------------------------------- -->
 <!--  ----------------------------------------------------------------------------------------------------------------------- -->
 
-
 <script type="text/worker">
+//<script>
 // type="text/worker"
+
+const imageDirectory = "https://raw.githubusercontent.com/eHanus/roll20-character-sheets/relic-creation/Relic/img/";
 
 // tabs
 const buttonlist = ["character", "party","gamemaster","settings"];
@@ -421,6 +518,66 @@ on("sheet:opened", function() {
       console.log("sheetTab was settings");
     }
   });
+});
+
+on("change:kit_base", function() {
+   getAttrs(["kit_base", "kit_base_custom_url"], function(values) {
+      //Do something with values.kit_base
+      let newURL = "";
+      switch (values.kit_base) {
+        case "none":
+          break;
+        case "custom":
+          newURL = values.kit_base_custom_url;
+          break;
+        default:
+          newURL = imageDirectory + "kit-" + values.kit_base + ".png";
+          break;
+      }
+      setAttrs({                            
+        "kit_base_url": newURL
+      });
+   });
+});
+
+on("change:kit_1", function() {
+   getAttrs(["kit_1", "kit_1_custom_url"], function(values) {
+      //Do something with values.kit_base
+      let newURL = "";
+      switch (values.kit_1) {
+        case "none":
+          break;
+        case "custom":
+          newURL = values.kit_1_custom_url;
+          break;
+        default:
+          newURL = imageDirectory + "kit-" + values.kit_1 + ".png";
+          break;
+      }
+      setAttrs({                            
+        "kit_1_url": newURL
+      });
+   });
+});
+
+on("change:kit_2", function() {
+   getAttrs(["kit_2", "kit_2_custom_url"], function(values) {
+      //Do something with values.kit_base
+      let newURL = "";
+      switch (values.kit_2) {
+        case "none":
+          break;
+        case "custom":
+          newURL = values.kit_2_custom_url;
+          break;
+        default:
+          newURL = imageDirectory + "kit-" + values.kit_2 + ".png";
+          break;
+      }
+      setAttrs({                            
+        "kit_2_url": newURL
+      });
+   });
 });
 
 </script>
