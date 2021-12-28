@@ -1,10 +1,10 @@
 
 <!-- Tabs -->
 <div class="tab-buttons middle center">
-  <button class="character" type="action" name="act_character" data-i18n="character" >Character</button>
-  <button class="party" type="action" name="act_party" data-i18n="party" >Party</button>
-  <button class="gamemaster" type="action" name="act_gamemaster" data-i18n="gamemaster-abbr" >GM</button>
-  <button class="settings" type="action" name="act_settings" data-i18n="settings" >Settings</button>
+  <button type="action" class="character" name="act_character" data-i18n="character" >Character</button>
+  <button type="action" class="party" name="act_party" data-i18n="party" >Party</button>
+  <button type="action" class="gamemaster" name="act_gamemaster" data-i18n="gamemaster-abbr" >GM</button>
+  <button type="action" class="settings" name="act_settings" data-i18n="settings" >Settings</button>
 </div>
 
 <input type="hidden" class="tabstoggle" name="attr_sheetTab"  value="character">
@@ -16,6 +16,11 @@
 <main class="character">
 
   <!-- Playbook -->
+  <!-- 
+    Dropdown with Options and a custom option to be filled in the settings tab
+    alternatively enter text and on pre-set names use the default abilities for the archetype
+    Playbook will populate the data in archetype abilities with default text
+    -->
   <div class="sheet-group">
     <div class="heading-box1">
       <span class="grouplabel" data-i18n="playbook-name">Playbook Name</span>
@@ -84,7 +89,6 @@
   <!-- 
     Four questions players can ask their neighbors (Will any text entry result from this?)
     Playbook autopopulates. Custom ones also encouraged
-
     -->
   <div class="sheet-group">
     <div class="heading-box1">
@@ -92,31 +96,37 @@
     </div>
   </div>
 
-  <!-- Summary & Drive -->
-  <!-- 
-    Name and Origin Repeat (Booklet. Might leave out of digital sheet)
-    Text input for drive
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="summary-drive">Summary & Drive</span>
-    </div>
-  </div>
-
   <!-- Companions -->
   <!-- 
     Three boxes for companion names and checkboxes
-    Track other PCs and if one can use their "strings" to influence them (limited to 3 or maybe flexible?)
+    Track other PCs and if one can use their "strings" to influence them (flexible number of lines (3+))
     -->
   <div class="sheet-group">
     <div class="heading-box1">
-      <span class="grouplabel" data-i18n="companions">Companions</span>
+      <span class="grouplabel" data-i18n="companions">Companions:</span>
+      <fieldset class="repeating_companion">
+        <input type="text" name="attr_companion_name" value="">
+        <input type="checkbox" name="attr_has_string" value="1" >
+      </fieldset>
     </div>
   </div>
 
+  <!-- Group: Drive -->
+  <!-- 
+    Name and Origin Repeat (Booklet. Might leave out of digital sheet)
+    Text input for drive
+    TODO: Still being used?? --> 
+  <div class="sheet-group">
+    <div class="heading-box1">
+      <span class="grouplabel" data-i18n="summary-drive">Group: Drive</span>
+    </div>
+  </div>
+    
   <!-- Abilities -->
   <!-- 
     Two text areas for abilities (Might more be needed)
+    Depending on Archetype and with a checkbox in front of each ability to show they were activated
+    (Maybe other form of highlighting picked/active abilities?)
     -->
   <div class="sheet-group">
     <div class="heading-box1">
@@ -126,9 +136,19 @@
 
   <!-- Actions -->
   <!-- 
-    Four categories with 3,3,3 and 2 actions in each one each consists of:
+    Four categories with 3,3,3 and 1 actions in each one each consists of:
     checkbox, name, kewords, field for own keyword(s)
     Last category changes from playbook to playbook
+
+    Categories: Survival, Fury, Presence, Special Actions
+
+    Actions: Survival > Craft, Hunt Traverse
+             Fury     > Finesse, Force, Skirmish
+             Presence > Banter, Threaten, Trick
+             Special Actions > Tinker
+
+    Actions can be skilled (checkbox)
+    Each Action has 3-4 Keywords (knacks) listed which can be selected (underlined + bold)
 
     Unkilled actions Roll 1D, skill adds +1D any knacks that apply add another +1D
     more than one custom knack thinkable
@@ -155,13 +175,14 @@
 
   <!-- Heart & Endurance -->
   <!-- 
-    Heart: Three checkboxes (probably used like a radio)
-    Endurance: Three checkboxes (probably used like a radio), expandable to 5?
-    Resolve: Three checkboxes (probably used like a radio), expandable to 5?
+    Heart: Two checkboxes (probably used like a radio)
+    Bloodied: Single Checkbox
+    Endurance: Four checkboxes (probably used like a radio), expandable to 6
+    Resolve: Four checkboxes (probably used like a radio), expandable to 6
 
     Heart works similar to Dark Hearts.
     Endurance & Resolve work a bit like stress but are rolled and can be upgraded
-    from 3 to a maximum of 5 through XP advances.
+    from 4 to a maximum of 6 through XP advances.
 
     -->
   <div class="sheet-group">
@@ -170,44 +191,42 @@
     </div>
   </div>
 
-  <!-- Goal & Struggles -->
+  <!-- Struggles -->
   <!-- 
-    Goal: Checkbox and text field (What is the checkbox for?)
     Struggles: Checkbox and text field (What is the checkbox for?) for primary struggle.
-    4 Text fields for other struggles (limited?)
+    4 Text fields for other struggles (flexible number)
 
     Struggles will be divided into short- and long-term conditions that present a hinderance or
     challenge that either comes up once or is part of the character
-
-    Current goal is gone and part of the story arcs
     -->
   <div class="sheet-group">
     <div class="heading-box1">
-      <span class="grouplabel" data-i18n="goal-struggles">Goal & Struggles</span>
+      <span class="grouplabel" data-i18n="struggles">Struggles</span>
     </div>
   </div>
 
-  <!-- Experience -->
+  <!-- Advances -->
   <!-- 
-    Six checkboxes for team experience (used like a radio) (maybe change to clock?)
+    Seven Lines of Info on how to advance the character. (Need checking off?)
     Explanatory text
     -->
   <div class="sheet-group">
     <div class="heading-box1">
-      <span class="grouplabel" data-i18n="experience">Experience</span>
+      <span class="grouplabel" data-i18n="advances">Advances</span>
     </div>
   </div>
 
   <!-- Talisman -->
   <!-- 
-    Contains: Image of talisman, name, text description / base ability,
-    3 upgrade abilities with description,
-    2-3 questions about it and the answers (origin and more from GM)
-    (Should those be customizable? Are the number of abilities fixed? )
-
+    Contains: Image of talisman, selector name (dropdown), specific name,
+    2 upgrade abilities with editable description,
+    question about it with suggestions and space for answer (origin with text for answer)
+    
     This is the center of most characters...  it's often some amazing item they have,
     but could also be an animal companion or even a magic power.
     Modular and selectable from presets on the PDF sheet.
+
+    (Maybe allow highlighting of keywords with color or bold text)
     -->
   <div class="sheet-group">
     <div class="heading-box1">
@@ -215,28 +234,16 @@
     </div>
   </div>
 
-  <!-- Talisman Arcs -->
-  <!-- 
-    2 checkboxes with descriptive text (How much is custom here and how fixed is the number?)
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="talisman-arcs">Talisman Arcs</span>
-    </div>
-  </div>
-
   <!-- Gear Kits -->
   <!-- 
     Select two of three kits as well as a space with text for custom equipment
-    Two checkboxes for kit flexibility (what are those?)
 
     Each PC will start with that basic gear kit there - backpack, bedroll, etc.
     They can then choose two others - small sets of items they have.
     These will have graphics and the PDF will make selecting these then printing it out easy,
     but they can also just be pasted onto the sheets / written in as well
 
-    kit flexibility is gone now
-
+    Multiple text lines for flexible other equipment
     -->
   <div class="sheet-group">
     <div class="heading-box1">
@@ -289,6 +296,18 @@
 			</div>
     </div>
   </div>
+
+  <!-- Story Arcs -->
+  <!-- 
+    Flexible Number of Lines with:
+    Longterm-Box, Entry 1, Entry 2, Entry 3
+  -->
+    <div class="sheet-group">
+      <div class="heading-box1">
+        <span class="grouplabel" data-i18n="story-arcs">Story Arcs</span>
+      </div>
+    </div>
+
 
   <!-- Camp -->
   <!-- 
@@ -482,7 +501,6 @@
 <!--  ----------------------------------------------------------------------------------------------------------------------- -->
 
 <script type="text/worker">
-//<script>
 // type="text/worker"
 
 const imageDirectory = "https://raw.githubusercontent.com/eHanus/roll20-character-sheets/relic-creation/Relic/img/";

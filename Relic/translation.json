@@ -9,10 +9,8 @@
 	"camp": "Camp",
 	"character": "Character",
 	"companions": "Companions",
-	"experience": "Experience",
 	"gamemaster-abbr": "GM",
 	"gear-kits": "Gear Kits",
-	"goal-struggles": "Goal & Struggles",
 	"heart-endurance": "Heart & Endurance",
 	"i-am-called": "I am called",
 	"kin": "Kin",
@@ -25,8 +23,9 @@
 	"questions": "Questions",
 	"season": "Season",
 	"settings": "Settings",
+	"story-arcs": "Story Arcs",
+	"struggles": "Struggles",
 	"summary-drive": "Summary & Drive",
 	"talisman": "Talisman",
-	"talisman-arcs": "Talisman Arcs",
 	"wises": "Wises"
 }
