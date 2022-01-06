@@ -33,6 +33,74 @@
 }
 
 
+/* main layout grid */
+
+.container {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: min-content min-content min-content min-content;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "MainDetails MainDetails Right-Column"
+    "Talisman Talisman Right-Column"
+    "Gear Gear Right-Column"
+    "Arcs Arcs Right-Column";
+}
+
+.MainDetails {  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: min-content min-content;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Essentials Essentials Portrait"
+    "Companions Group Group";
+  grid-area: MainDetails;
+}
+
+.Companions { grid-area: Companions; }
+
+.Group { grid-area: Group; }
+
+.Essentials { grid-area: Essentials; }
+
+.Portrait { grid-area: Portrait; }
+
+.Right-Column { grid-area: Right-Column; }
+
+.Talisman {  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: min-content;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "TalismanAbilities TalismanPicture";
+  grid-area: Talisman;
+}
+
+.TalismanAbilities { grid-area: TalismanAbilities; }
+
+.TalismanPicture { grid-area: TalismanPicture; }
+
+.Gear {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "GearLeft GearRight";
+  grid-area: Gear;
+}
+
+.GearLeft { grid-area: GearLeft; }
+
+.GearRight { grid-area: GearRight; }
+
+.Arcs { grid-area: Arcs; }
+
+
+
 /* Table Style*/
 .divTable{
 	display: table;

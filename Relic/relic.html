@@ -13,65 +13,380 @@
 <!--  ------------------------------------------------- CHARACTER ----------------------------------------------------------- -->
 <!--  ----------------------------------------------------------------------------------------------------------------------- -->
 
-<main class="character">
+<main class="character container">
+  <div class="MainDetails">
+    <div class="Essentials">
+      <!-- Playbook -->
+      <!-- 
+        Dropdown with Options and a custom option to be filled in the settings tab
+        alternatively enter text and on pre-set names use the default abilities for the archetype
+        Playbook will populate the data in archetype abilities with default text
+      -->
+      <div class="sheet-group">
+        <div class="heading-box1">
+          <span class="grouplabel" data-i18n="playbook-name">Playbook Name</span>
+        </div>
+        <div class="heading-box2">
+          <input class="input" type="text" name="attr_playbook_name" value="" title="@{playbook_name}" />
+        </div>
+      </div>
 
-  <!-- Playbook -->
-  <!-- 
-    Dropdown with Options and a custom option to be filled in the settings tab
-    alternatively enter text and on pre-set names use the default abilities for the archetype
-    Playbook will populate the data in archetype abilities with default text
+      <!-- Name and Origin -->
+      <div class="sheet-group">
+        <div class="heading-box1">
+          <span class="grouplabel" data-i18n="name-origin">Name & Origin</span>
+        </div>
+        <div class="heading-grid">
+          <div class="heading-box2">
+            <span class="label" data-i18n="i-am-called">I am called</span>
+          </div>
+          <div class="heading-box3">
+            <input class="input" type="text" name="attr_character_name" value="" title="@{character_name}" />
+          </div>
+          <div class="heading-box4">
+            <span class="label" data-i18n="name-of-suffix">of</span>
+          </div>
+          <div class="heading-box5">
+            <input class="input" type="text" name="attr_character_name_suffix" value="" title="@{character_name_suffix}" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Appearance & Background -->
+      <div class="sheet-group">
+        <div class="heading-box1">
+          <span class="grouplabel" data-i18n="appearance-background">Appearance & Background</span>
+        </div>
+        <div class="heading-grid">
+          <div class="heading-box2">
+            <span class="label" data-i18n="appearance">Appearance</span>
+          </div>
+          <div class="heading-box3">
+            <input class="input" type="text" name="attr_char_appearance" value="" title="@{char_appearance}" />
+          </div>
+          <div class="heading-box4">
+            <span class="label" data-i18n="background">Background</span>
+          </div>
+          <div class="heading-box5">
+            <input class="input" type="text" name="attr_char_background" value="" title="@{char_background}" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Abilities -->
+      <!-- 
+        Two text areas for abilities (Might more be needed)
+        Depending on Archetype and with a checkbox in front of each ability to show they were activated
+        (Maybe other form of highlighting picked/active abilities?)
+      -->
+      <div class="sheet-group">
+        <div class="heading-box1">
+          <span class="grouplabel" data-i18n="abilities">Abilities</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="Portrait">
+
+    </div>
+    <div class="Companions">
+      <!-- Companions -->
+      <!-- 
+        Three boxes for companion names and checkboxes
+        Track other PCs and if one can use their "strings" to influence them (flexible number of lines (3+))
+      -->
+      <div class="sheet-group">
+        <div class="heading-box1">
+          <span class="grouplabel" data-i18n="companions">Companions:</span>
+          <fieldset class="repeating_companion">
+            <input type="text" name="attr_companion_name" value="">
+            <input type="checkbox" name="attr_has_string" value="1" >
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <div class="Group">
+      <!-- Group: Drive -->
+      <!-- 
+        Name and Origin Repeat (Booklet. Might leave out of digital sheet)
+        Text input for drive
+        TODO: Still being used?? 
+      --> 
+      <div class="sheet-group">
+        <div class="heading-box1">
+          <span class="grouplabel" data-i18n="summary-drive">Group: Drive</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="Talisman">
+    <div class="TalismanAbilities">
+      <!-- Talisman -->
+      <!-- 
+        Contains: Image of talisman, selector name (dropdown), specific name,
+        2 upgrade abilities with editable description,
+        question about it with suggestions and space for answer (origin with text for answer)
+        
+        This is the center of most characters...  it's often some amazing item they have,
+        but could also be an animal companion or even a magic power.
+        Modular and selectable from presets on the PDF sheet.
+
+        (Maybe allow highlighting of keywords with color or bold text)
+      -->
+      <div class="sheet-group">
+        <div class="heading-box1">
+          <span class="grouplabel" data-i18n="talisman">Talisman</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="TalismanPicture">
+
+    </div>
+  </div>
+  <div class="Gear">
+    <!-- Gear Kits -->
+    <!-- 
+      Select two of three kits as well as a space with text for custom equipment
+  
+      Each PC will start with that basic gear kit there - backpack, bedroll, etc.
+      They can then choose two others - small sets of items they have.
+      These will have graphics and the PDF will make selecting these then printing it out easy,
+      but they can also just be pasted onto the sheets / written in as well
+  
+      Multiple text lines for flexible other equipment
     -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="playbook-name">Playbook Name</span>
+    <div class="GearLeft">
+      <div class="sheet-group">
+        <div class="heading-box1">
+          <span class="grouplabel" data-i18n="gear-kits">Gear Kits</span>
+        </div>
+        <div class="kit-selector">
+          <span>Base Kit :</span>
+          <select name="attr_kit_base">
+            <option value="none">None</option>
+            <option value="builder">Builder</option>
+            <option value="cook">Cook</option>
+            <option value="explorer">Explorer</option>
+            <option value="healer">Healer</option>
+            <option value="hunter">Hunter</option>
+            <option value="traveler" selected>Traveler</option>
+            <option value="custom">Custom</option>
+          </select>
+          <!--
+            <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Relic/img/kit-builder.png"/>
+            <img src="https://raw.githubusercontent.com/eHanus/roll20-character-sheets/relic-creation/Relic/img/kit-traveler.png"/>
+          -->
+          <img name="attr_kit_base_url"/>
+        </div>
+        <!-- Text Area or Repeating Section for Gear notes -->
+        <div>
+          <textarea></textarea>
+        </div>
+      </div>
     </div>
-    <div class="heading-box2">
-      <input class="input" type="text" name="attr_playbook_name" value="" title="@{playbook_name}" />
+
+    <div class="GearRight">
+      <div class="kit-selector">
+        <span>Kit #1 :</span>
+        <select name="attr_kit_1">
+          <option value="none" selected>None</option>
+          <option value="builder">Builder</option>
+          <option value="cook">Cook</option>
+          <option value="explorer">Explorer</option>
+          <option value="healer">Healer</option>
+          <option value="hunter">Hunter</option>
+          <option value="traveler">Traveler</option>
+          <option value="custom">Custom</option>
+        </select>
+        <img name="attr_kit_1_url"/>
+      </div>
+      <div class="kit-selector">
+        <span>Kit #2 :</span>
+        <select name="attr_kit_2">
+          <option value="none" selected>None</option>
+          <option value="builder">Builder</option>
+          <option value="cook">Cook</option>
+          <option value="explorer">Explorer</option>
+          <option value="healer">Healer</option>
+          <option value="hunter">Hunter</option>
+          <option value="traveler">Traveler</option>
+          <option value="custom">Custom</option>
+        </select>
+        <img name="attr_kit_2_url"/>
+      </div>
     </div>
   </div>
+  <div class="Arcs">
+    <!-- Story Arcs -->
+    <!-- 
+      Flexible Number of Lines with:
+      Longterm-Box, Entry 1, Entry 2, Entry 3
+    -->
+    <div class="sheet-group">
+      <div class="heading-box1">
+        <span class="grouplabel" data-i18n="story-arcs">Story Arcs</span>
+      </div>
+    </div>
 
-  <!-- Name and Origin -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="name-origin">Name & Origin</span>
-    </div>
-    <div class="heading-grid">
-      <div class="heading-box2">
-        <span class="label" data-i18n="i-am-called">I am called</span>
-      </div>
-      <div class="heading-box3">
-        <input class="input" type="text" name="attr_character_name" value="" title="@{character_name}" />
-      </div>
-      <div class="heading-box4">
-        <span class="label" data-i18n="name-of-suffix">of</span>
-      </div>
-      <div class="heading-box5">
-        <input class="input" type="text" name="attr_character_name_suffix" value="" title="@{character_name_suffix}" />
-      </div>
-    </div>
+    <!-- Notes -->
+    <!-- 
+      Textarea for taking notes about the Character
+    -->
   </div>
+  <div class="Right-Column">
+    <!-- Heart & Endurance -->
+    <!-- 
+      Heart: Two checkboxes (probably used like a radio)
+      Bloodied: Single Checkbox
+      Endurance: Four checkboxes (probably used like a radio), expandable to 6
+      Resolve: Four checkboxes (probably used like a radio), expandable to 6
 
-  <!-- Appearance & Background -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="appearance-background">Appearance & Background</span>
-    </div>
-    <div class="heading-grid">
-      <div class="heading-box2">
-        <span class="label" data-i18n="appearance">Appearance</span>
-      </div>
-      <div class="heading-box3">
-        <input class="input" type="text" name="attr_char_appearance" value="" title="@{char_appearance}" />
-      </div>
-      <div class="heading-box4">
-        <span class="label" data-i18n="background">Background</span>
-      </div>
-      <div class="heading-box5">
-        <input class="input" type="text" name="attr_char_background" value="" title="@{char_background}" />
+      Heart works similar to Dark Hearts.
+      Endurance & Resolve work a bit like stress but are rolled and can be upgraded
+      from 4 to a maximum of 6 through XP advances.
+    -->
+    <div class="sheet-group">
+      <div class="heading-box1">
+        <span class="grouplabel" data-i18n="heart-endurance">Heart & Endurance</span>
       </div>
     </div>
+
+    <!-- Struggles -->
+    <!-- 
+      Struggles: Checkbox and text field (What is the checkbox for?) for primary struggle.
+      4 Text fields for other struggles (flexible number)
+
+      Struggles will be divided into short- and long-term conditions that present a hinderance or
+      challenge that either comes up once or is part of the character
+    -->
+    <div class="sheet-group">
+      <div class="heading-box1">
+        <span class="grouplabel" data-i18n="struggles">Struggles</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <!-- 
+      Four categories with 3,3,3 and 1 actions in each one each consists of:
+      checkbox, name, kewords, field for own keyword(s)
+      Last category changes from playbook to playbook
+
+      Categories: Survival, Fury, Presence, Special Actions
+
+      Actions: Survival > Craft, Hunt Traverse
+              Fury     > Finesse, Force, Skirmish
+              Presence > Banter, Threaten, Trick
+              Special Actions > Tinker
+
+      Actions can be skilled (checkbox)
+      Each Action has 3-4 Keywords (knacks) listed which can be selected (underlined + bold)
+
+      Unkilled actions Roll 1D, skill adds +1D any knacks that apply add another +1D
+      more than one custom knack thinkable
+    -->
+    <div class="sheet-group">
+      <div class="heading-box1">
+        <span class="grouplabel" data-i18n="actions">Actions</span>
+      </div>
+
+      <div class="actions-block">
+        <div class="flex">
+          <label class="text-button">
+            <input type="checkbox" name="attr_knack_craft_1" value="1"><span name="attr_knack_craft_1_name"></span>
+          </label>
+          <span>—</span>
+          <label class="text-button">
+            <input type="checkbox" name="attr_knack_craft_2" value="1"><span name="attr_knack_craft_2_name"></span>
+          </label>
+          <span>—</span>
+          <label class="text-button">
+            <input type="checkbox" name="attr_knack_craft_3" value="1"><span name="attr_knack_craft_3_name"></span>
+          </label>
+          <span>—</span>
+          <label class="text-button">
+            <input type="checkbox" name="attr_knack_craft_4" value="1"><span name="attr_knack_craft_4_name"></span>
+          </label>
+        </div>
+        <div class="flex">
+          <label class="text-button">
+            <input type="checkbox" name="attr_knack_hunt_1" value="1"><span name="attr_knack_hunt_1_name"></span>
+          </label>
+          <span>—</span>
+          <label class="text-button">
+            <input type="checkbox" name="attr_knack_hunt_2" value="1"><span name="attr_knack_hunt_2_name"></span>
+          </label>
+          <span>—</span>
+          <label class="text-button">
+            <input type="checkbox" name="attr_knack_hunt_3" value="1"><span name="attr_knack_hunt_3_name"></span>
+          </label>
+          <span>—</span>
+          <label class="text-button">
+            <input type="checkbox" name="attr_knack_hunt_4" value="1"><span name="attr_knack_hunt_4_name"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wises -->
+    <!-- 
+      Twelve checkboxes with labels. The last one has a text field instead of a label
+      (Are more than 1 custom wises likely?)
+
+      Wises allow players to spend resolve to establish facts about the world.
+      May need a roll and work like skills (1D, 2D)
+      -->
+    <div class="sheet-group">
+      <div class="heading-box1">
+        <span class="grouplabel" data-i18n="wises">Wises</span>
+      </div>
+    </div>
+
+    <!-- Advances -->
+    <!-- 
+      Seven Lines of Info on how to advance the character. (Need checking off?)
+      Explanatory text
+      -->
+    <div class="sheet-group">
+      <div class="heading-box1">
+        <span class="grouplabel" data-i18n="advances">Advances</span>
+      </div>
+    </div>
+
   </div>
+</main>
 
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+<!--  ------------------------------------------------- PARTY --------------------------------------------------------------- -->
+<!--  ----------------------------------------------------------------------------------------------------------------------- -->
+<main class="party">
+  
+  <div class="sheet-partytitle">
+
+    <span> </span> <h2> Party </h2> <span> </span>
+  
+  </div>
+  
+  <div class="sheet-clues">
+  
+    <div class="sheet-clues-row">
+        <span> </span>
+    </div>
+
+    <fieldset class="repeating_clues">
+      <div class="sheet-clues-row">
+        <span> </span>
+        <textarea name="attr_cluedescription" value=""> </textarea>
+        <span> </span>
+      </div>
+    </fieldset>
+  </div>
+  
+  <div class="sheet-info sheet-flex-col">
+    
+  </div>
 
   <!-- Arcs -->
   <!-- 
@@ -79,271 +394,25 @@
     Playbook suggests but players might create own
     2 to 3 boxes for points of the selected arc
     -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="arcs">Arcs</span>
-    </div>
-  </div>
-
-  <!-- Questions -->
-  <!-- 
-    Four questions players can ask their neighbors (Will any text entry result from this?)
-    Playbook autopopulates. Custom ones also encouraged
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="questions">Questions</span>
-    </div>
-  </div>
-
-  <!-- Companions -->
-  <!-- 
-    Three boxes for companion names and checkboxes
-    Track other PCs and if one can use their "strings" to influence them (flexible number of lines (3+))
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="companions">Companions:</span>
-      <fieldset class="repeating_companion">
-        <input type="text" name="attr_companion_name" value="">
-        <input type="checkbox" name="attr_has_string" value="1" >
-      </fieldset>
-    </div>
-  </div>
-
-  <!-- Group: Drive -->
-  <!-- 
-    Name and Origin Repeat (Booklet. Might leave out of digital sheet)
-    Text input for drive
-    TODO: Still being used?? --> 
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="summary-drive">Group: Drive</span>
-    </div>
-  </div>
-    
-  <!-- Abilities -->
-  <!-- 
-    Two text areas for abilities (Might more be needed)
-    Depending on Archetype and with a checkbox in front of each ability to show they were activated
-    (Maybe other form of highlighting picked/active abilities?)
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="abilities">Abilities</span>
-    </div>
-  </div>
-
-  <!-- Actions -->
-  <!-- 
-    Four categories with 3,3,3 and 1 actions in each one each consists of:
-    checkbox, name, kewords, field for own keyword(s)
-    Last category changes from playbook to playbook
-
-    Categories: Survival, Fury, Presence, Special Actions
-
-    Actions: Survival > Craft, Hunt Traverse
-             Fury     > Finesse, Force, Skirmish
-             Presence > Banter, Threaten, Trick
-             Special Actions > Tinker
-
-    Actions can be skilled (checkbox)
-    Each Action has 3-4 Keywords (knacks) listed which can be selected (underlined + bold)
-
-    Unkilled actions Roll 1D, skill adds +1D any knacks that apply add another +1D
-    more than one custom knack thinkable
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="actions">Actions</span>
-    </div>
-
-    <div class="actions-block">
-      <div class="flex">
-        <label class="text-button">
-          <input type="checkbox" name="attr_knack_craft_1" value="1"><span name="attr_knack_craft_1_name"></span>
-        </label>
-        <span>—</span>
-        <label class="text-button">
-          <input type="checkbox" name="attr_knack_craft_2" value="1"><span name="attr_knack_craft_2_name"></span>
-        </label>
-        <span>—</span>
-        <label class="text-button">
-          <input type="checkbox" name="attr_knack_craft_3" value="1"><span name="attr_knack_craft_3_name"></span>
-        </label>
-        <span>—</span>
-        <label class="text-button">
-          <input type="checkbox" name="attr_knack_craft_4" value="1"><span name="attr_knack_craft_4_name"></span>
-        </label>
-      </div>
-      <div class="flex">
-        <label class="text-button">
-          <input type="checkbox" name="attr_knack_hunt_1" value="1"><span name="attr_knack_hunt_1_name"></span>
-        </label>
-        <span>—</span>
-        <label class="text-button">
-          <input type="checkbox" name="attr_knack_hunt_2" value="1"><span name="attr_knack_hunt_2_name"></span>
-        </label>
-        <span>—</span>
-        <label class="text-button">
-          <input type="checkbox" name="attr_knack_hunt_3" value="1"><span name="attr_knack_hunt_3_name"></span>
-        </label>
-        <span>—</span>
-        <label class="text-button">
-          <input type="checkbox" name="attr_knack_hunt_4" value="1"><span name="attr_knack_hunt_4_name"></span>
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <!-- Wises -->
-  <!-- 
-    Twelve checkboxes with labels. The last one has a text field instead of a label
-    (Are more than 1 custom wises likely?)
-
-    Wises allow players to spend resolve to establish facts about the world.
-    May need a roll and work like skills (1D, 2D)
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="wises">Wises</span>
-    </div>
-  </div>
-
-  <!-- Heart & Endurance -->
-  <!-- 
-    Heart: Two checkboxes (probably used like a radio)
-    Bloodied: Single Checkbox
-    Endurance: Four checkboxes (probably used like a radio), expandable to 6
-    Resolve: Four checkboxes (probably used like a radio), expandable to 6
-
-    Heart works similar to Dark Hearts.
-    Endurance & Resolve work a bit like stress but are rolled and can be upgraded
-    from 4 to a maximum of 6 through XP advances.
-
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="heart-endurance">Heart & Endurance</span>
-    </div>
-  </div>
-
-  <!-- Struggles -->
-  <!-- 
-    Struggles: Checkbox and text field (What is the checkbox for?) for primary struggle.
-    4 Text fields for other struggles (flexible number)
-
-    Struggles will be divided into short- and long-term conditions that present a hinderance or
-    challenge that either comes up once or is part of the character
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="struggles">Struggles</span>
-    </div>
-  </div>
-
-  <!-- Advances -->
-  <!-- 
-    Seven Lines of Info on how to advance the character. (Need checking off?)
-    Explanatory text
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="advances">Advances</span>
-    </div>
-  </div>
-
-  <!-- Talisman -->
-  <!-- 
-    Contains: Image of talisman, selector name (dropdown), specific name,
-    2 upgrade abilities with editable description,
-    question about it with suggestions and space for answer (origin with text for answer)
-    
-    This is the center of most characters...  it's often some amazing item they have,
-    but could also be an animal companion or even a magic power.
-    Modular and selectable from presets on the PDF sheet.
-
-    (Maybe allow highlighting of keywords with color or bold text)
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="talisman">Talisman</span>
-    </div>
-  </div>
-
-  <!-- Gear Kits -->
-  <!-- 
-    Select two of three kits as well as a space with text for custom equipment
-
-    Each PC will start with that basic gear kit there - backpack, bedroll, etc.
-    They can then choose two others - small sets of items they have.
-    These will have graphics and the PDF will make selecting these then printing it out easy,
-    but they can also just be pasted onto the sheets / written in as well
-
-    Multiple text lines for flexible other equipment
-    -->
-  <div class="sheet-group">
-    <div class="heading-box1">
-      <span class="grouplabel" data-i18n="gear-kits">Gear Kits</span>
-      <div class="kit-selector">
-				<span>Base Kit :</span>
-				<select name="attr_kit_base">
-					<option value="none">None</option>
-					<option value="builder">Builder</option>
-					<option value="cook">Cook</option>
-					<option value="explorer">Explorer</option>
-					<option value="healer">Healer</option>
-          <option value="hunter">Hunter</option>
-					<option value="traveler" selected>Traveler</option>
-					<option value="custom">Custom</option>
-				</select>
-        <!--
-          <img src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Relic/img/kit-builder.png"/>
-          <img src="https://raw.githubusercontent.com/eHanus/roll20-character-sheets/relic-creation/Relic/img/kit-traveler.png"/>
-        -->
-        <img name="attr_kit_base_url"/>
-			</div>
-      <div class="kit-selector">
-				<span>Kit #1 :</span>
-				<select name="attr_kit_1">
-					<option value="none" selected>None</option>
-					<option value="builder">Builder</option>
-					<option value="cook">Cook</option>
-					<option value="explorer">Explorer</option>
-					<option value="healer">Healer</option>
-          <option value="hunter">Hunter</option>
-					<option value="traveler">Traveler</option>
-					<option value="custom">Custom</option>
-				</select>
-        <img name="attr_kit_1_url"/>
-			</div>
-      <div class="kit-selector">
-				<span>Kit #2 :</span>
-				<select name="attr_kit_2">
-					<option value="none" selected>None</option>
-					<option value="builder">Builder</option>
-					<option value="cook">Cook</option>
-					<option value="explorer">Explorer</option>
-					<option value="healer">Healer</option>
-          <option value="hunter">Hunter</option>
-					<option value="traveler">Traveler</option>
-					<option value="custom">Custom</option>
-				</select>
-        <img name="attr_kit_2_url"/>
-			</div>
-    </div>
-  </div>
-
-  <!-- Story Arcs -->
-  <!-- 
-    Flexible Number of Lines with:
-    Longterm-Box, Entry 1, Entry 2, Entry 3
-  -->
     <div class="sheet-group">
       <div class="heading-box1">
-        <span class="grouplabel" data-i18n="story-arcs">Story Arcs</span>
+        <span class="grouplabel" data-i18n="arcs">Arcs</span>
       </div>
     </div>
+  
+    <!-- Questions -->
+    <!-- 
+      Four questions players can ask their neighbors (Will any text entry result from this?)
+      Playbook autopopulates. Custom ones also encouraged
+      -->
+    <div class="sheet-group">
+      <div class="heading-box1">
+        <span class="grouplabel" data-i18n="questions">Questions</span>
+      </div>
+    </div>
+  
+
+  
 
 
   <!-- Camp -->
@@ -384,38 +453,6 @@
     <div class="heading-box1">
       <span class="grouplabel" data-i18n="advances">Advances</span>
     </div>
-  </div>
-
-</main>
-
-<!--  ----------------------------------------------------------------------------------------------------------------------- -->
-<!--  ------------------------------------------------- PARTY --------------------------------------------------------------- -->
-<!--  ----------------------------------------------------------------------------------------------------------------------- -->
-<main class="party">
-  
-  <div class="sheet-partytitle">
-
-    <span> </span> <h2> Party </h2> <span> </span>
-  
-  </div>
-  
-  <div class="sheet-clues">
-  
-    <div class="sheet-clues-row">
-        <span> </span>
-    </div>
-
-    <fieldset class="repeating_clues">
-      <div class="sheet-clues-row">
-        <span> </span>
-        <textarea name="attr_cluedescription" value=""> </textarea>
-        <span> </span>
-      </div>
-    </fieldset>
-  </div>
-  
-  <div class="sheet-info sheet-flex-col">
-    
   </div>
 
 </main>
@@ -789,7 +826,6 @@
 <!--  ----------------------------------------------------------------------------------------------------------------------- -->
 
 <script type="text/worker">
-// type="text/worker"
 
 const imageDirectory = "https://raw.githubusercontent.com/eHanus/roll20-character-sheets/relic-creation/Relic/img/";
 
