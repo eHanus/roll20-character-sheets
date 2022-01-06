@@ -63,3 +63,46 @@
 .divTableBody {
 	display: table-row-group;
 }
+
+
+
+/* Actions & Knacks */
+.actions-block label {
+  display: inline;
+}
+
+.actions-block input[type=checkbox] {
+	opacity: 0;
+	z-index: 1;
+	margin: 0;
+	padding: 0;
+	flex-shrink: 0;
+	position: absolute;
+	-moz-appearance: none;
+}
+
+.actions-block input[type=checkbox] + span {
+	display: inline-block;
+	transition: all 0.2s;
+	flex-shrink: 0;
+}
+
+.actions-block .text-button {
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: inherit;
+	cursor: pointer;
+}
+.actions-block .text-button + span {
+	margin: auto;
+}
+.actions-block .text-button input:checked + span {
+	color: #e34a3a;
+	text-shadow: 0 0 2px red;
+}
+
+.actions-block input.text-input:checked + span {
+	color: #e34a3a;
+	text-shadow: 0 0 2px red;
+}
+
